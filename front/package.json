@@ -1,0 +1,16 @@
+{
+  "name": "conduit-front",
+  "version": "1.0.0",
+  "description": "frontend for conduit full stack app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "real-world-app",
+    "react",
+    "full-stack"
+  ],
+  "author": "jaseveen@gmail.com",
+  "license": "ISC"
+}
