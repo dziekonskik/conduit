@@ -3,7 +3,7 @@ const esbuild = require("esbuild");
 esbuild.build({
   bundle: true,
   entryPoints: ["src/index.tsx"],
-  outdir: "dist",
+  outdir: "public/dist",
   splitting: true,
   minify: true,
   format: "esm",
@@ -15,5 +15,5 @@ esbuild.build({
     ".svg": "file",
     ".gif": "file",
   },
-  assetNames: "assets/[name]",
+  assetNames: "dist/assets/[name]",
 });
