@@ -4,7 +4,10 @@
   "description": "frontend for conduit full stack app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:js": "node ./esbuild.config.js",
+    "build:css": "NODE_ENV=production postcss ./src/styles/*.css -d ./dist",
+    "build": "run-s build:*",
+    "dev": ""
   },
   "keywords": [
     "real-world-app",
@@ -12,5 +15,21 @@
     "full-stack"
   ],
   "author": "jaseveen@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "esbuild": "^0.14.39",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
+    "autoprefixer": "^10.4.7",
+    "cssnano": "^5.1.7",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.13",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.6.4"
+  }
 }
