@@ -7,7 +7,9 @@
     "build:js": "node ./esbuild.config.js",
     "build:css": "NODE_ENV=production postcss ./src/styles/*.css -d ./dist",
     "build": "run-s build:*",
-    "dev": ""
+    "dev": "run-p dev:*",
+    "dev:css": "NODE_ENV=development postcss ./src/styles/*.css -d ./dist --watch",
+    "dev:js": "node ./esbuild.dev.js"
   },
   "keywords": [
     "real-world-app",
