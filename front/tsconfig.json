@@ -21,12 +21,6 @@
     "jsx": "preserve",
     "typeRoots": ["node_modules/@types", "typings"]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "esbuild.config.js",
-    "esbuild.serve.js"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "esbuild.config.js", "esbuild.serve.js"],
   "exclude": ["node_modules"]
 }

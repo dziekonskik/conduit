@@ -2,7 +2,7 @@ const esbuild = require("esbuild");
 
 esbuild
   .serve(
-    { port: 7000, host: "127.0.0.1", servedir: "public" },
+    { port: 7000, host: "0.0.0.0", servedir: "public" },
     {
       bundle: true,
       entryPoints: ["src/index.tsx"],

@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "extends": [
+    "plugin:react-hooks/recommended",
+    "plugin:import/errors",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "rules": {
+    "unicorn/prefer-module": 0
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.tsx", "src/**/*.ts"],
+      "rules": {
+        "import/no-default-export": 0
+      }
+    }
+  ]
+}
