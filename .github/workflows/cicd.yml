@@ -24,13 +24,12 @@ jobs:
         working-directory: ./front
         run: pnpm install
       - name: Test
+        working-directory: ./front
         run: pnpm run test
   build:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: Enter frontend dir
-        run: cd ./front
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -44,10 +43,14 @@ jobs:
         with:
           node-version: 16
           cache: "pnpm"
-      - run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        working-directory: ./front
+        run: pnpm install
       - name: Build
+        working-directory: ./front
         run: pnpm run build
       - name: Copy index.html
+        working-directory: ./front
         run: cp ./public/index.html ./public/build/index.html
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
