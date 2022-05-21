@@ -10,8 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Show where are we
-        run: pwd && ls
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -25,7 +23,9 @@ jobs:
         with:
           node-version: 16
           cache: "pnpm"
-      - run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        working-directory: ./front
+        run: pnpm install --frozen-lockfile
       - name: Test
         run: pnpm run test
   build:
