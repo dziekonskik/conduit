@@ -1,11 +1,9 @@
 const esbuild = require("esbuild");
 
 esbuild.build({
-  publicPath: "https://real-conduit.netlify.app/public/build",
   bundle: true,
   entryPoints: ["src/index.tsx"],
   outdir: "public/build",
-  entryNames: "[dir]/[name]",
   splitting: true,
   minify: true,
   format: "esm",
