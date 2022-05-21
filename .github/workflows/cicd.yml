@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-node@v3
       - name: Install dependencies
         working-directory: ./front
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
       - name: Test
         run: pnpm run test
   build:
