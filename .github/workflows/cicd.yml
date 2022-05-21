@@ -10,6 +10,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Enter frontend dir
+        run: cd frontend
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -23,13 +25,15 @@ jobs:
         with:
           node-version: 16
           cache: "pnpm"
-      - run: cd frontend && pnpm install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile
       - name: Test
         run: pnpm run test
   build:
     runs-on: ubuntu-latest
     needs: test
     steps:
+      - name: Enter frontend dir
+        run: cd frontend
       - name: Checkout
         uses: actions/checkout@v3
         with:
