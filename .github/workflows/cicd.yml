@@ -43,14 +43,11 @@ jobs:
       - name: Build
         working-directory: ./front
         run: pnpm run build
-      - name: Copy index.html
-        working-directory: ./front
-        run: cp ./public/index.html ./public/build/index.html
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: conduit-build
-          path: ./front/public/build
+          path: ./front/public
   publish:
     runs-on: ubuntu-18.04
     needs: build
@@ -59,11 +56,12 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: conduit-build
-          path: ./front/public/build
+          path: ./front/public
+      - run: ls -R
       - name: Publish
         uses: nwtgck/actions-netlify@v1.2
         with:
-          publish-dir: "./front/public/build"
+          publish-dir: "./front/public"
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
