@@ -60,6 +60,7 @@ jobs:
         with:
           name: conduit-build
           path: ./front/public/build
+      - run: ls -R
       - name: Publish
         uses: nwtgck/actions-netlify@v1.2
         with:
