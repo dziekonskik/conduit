@@ -33,7 +33,7 @@ jobs:
     needs: test
     steps:
       - name: Enter frontend dir
-        run: cd frontend
+        run: cd front
       - name: Checkout
         uses: actions/checkout@v3
         with:
