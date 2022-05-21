@@ -10,8 +10,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Enter frontend dir
-        run: cd ./front
+      - name: Show where are we
+        run: pwd && ls
       - name: Checkout
         uses: actions/checkout@v3
         with:
