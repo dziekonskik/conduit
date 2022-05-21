@@ -40,9 +40,6 @@ jobs:
           version: 7.1.2
       - name: Setup node
         uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: "pnpm"
       - name: Install dependencies
         working-directory: ./front
         run: pnpm install
