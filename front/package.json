@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build:js": "node ./esbuild.config.js",
-    "build:css": "NODE_ENV=production postcss ./src/styles/*.css -d ./public/dist",
+    "build:css": "NODE_ENV=production postcss ./src/styles/*.css -d ./public/build",
     "build": "run-s build:*",
     "dev": "run-p dev:*",
-    "dev:css": "NODE_ENV=development postcss ./src/styles/*.css -d ./public/dist",
+    "dev:css": "NODE_ENV=development postcss ./src/styles/*.css -d ./public/build",
     "dev:js": "node ./esbuild.dev.js",
     "lint": "eslint --fix --debug --cache",
     "test": "jest"

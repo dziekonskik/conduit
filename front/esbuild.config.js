@@ -3,7 +3,7 @@ const esbuild = require("esbuild");
 esbuild.build({
   bundle: true,
   entryPoints: ["src/index.tsx"],
-  outdir: "public/dist",
+  outdir: "public/build",
   splitting: true,
   minify: true,
   format: "esm",
