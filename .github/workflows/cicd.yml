@@ -50,6 +50,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: conduit-build
+          path: .front/public/build
+      - run: ls -R
   publish:
     runs-on: ubuntu-18.04
     needs: build
@@ -58,6 +60,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: conduit-build
+          path: .front/public/build
       - name: Publish
         uses: nwtgck/actions-netlify@v1.2
         with:
