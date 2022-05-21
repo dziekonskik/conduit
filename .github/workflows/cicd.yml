@@ -10,14 +10,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout and setup
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # Number of commits to fetch. 0 indicates all history for all branches and tags.  # Default: 1 - MIAŁEM TO NA KURSIE GOSCIU UZYWAŁ ALE CZY TO NIE JEST OVERKILL ??
-      - uses: pnpm/action-setup@v2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
           version: 7.1.2
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "pnpm"
@@ -28,24 +30,26 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: Checkout and setup
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # Number of commits to fetch. 0 indicates all history for all branches and tags.  # Default: 1 - MIAŁEM TO NA KURSIE GOSCIU UZYWAŁ ALE CZY TO NIE JEST OVERKILL ??
-      - uses: pnpm/action-setup@v2
+      - name: Setup
+        uses: pnpm/action-setup@v2
         with:
           version: 7.1.2
-      - uses: actions/setup-node@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "pnpm"
       - run: cd frontend && pnpm install --frozen-lockfile
       - name: Build
-      - run: pnpm run build
-      - run: cp ./public/index.html ./public/build/index.html
-
+        run: pnpm run build
+      - name: Copy index.html
+        run: cp ./public/index.html ./public/build/index.html
       - name: Upload artifacts
-      - uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: conduit-build
           path: ./public/build
