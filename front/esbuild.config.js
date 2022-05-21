@@ -4,6 +4,7 @@ esbuild.build({
   bundle: true,
   entryPoints: ["src/index.tsx"],
   outdir: "public/build",
+  entryNames: "[dir]/[name]",
   splitting: true,
   minify: true,
   format: "esm",
