@@ -15,5 +15,5 @@ esbuild.build({
     ".svg": "file",
     ".gif": "file",
   },
-  assetNames: "assets/[name]",
+  assetNames: "build/assets/[name]",
 });
