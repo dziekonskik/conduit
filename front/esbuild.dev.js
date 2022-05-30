@@ -6,7 +6,7 @@ esbuild
     {
       bundle: true,
       entryPoints: ["src/index.tsx"],
-      outdir: "public/build",
+      outdir: "public",
       splitting: true,
       minify: false,
       sourcemap: true,
@@ -19,7 +19,7 @@ esbuild
         ".svg": "file",
         ".gif": "file",
       },
-      assetNames: "build/assets/[name]",
+      assetNames: "[dir]/[name]",
     }
   )
   .then((result) => {
